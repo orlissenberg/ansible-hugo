@@ -1,0 +1,6 @@
+---
+# tasks file for hugo
+
+- include: main-debian.yml
+  when: ansible_distribution == 'Debian'
+
