@@ -1,0 +1,10 @@
+---
+# tasks file for hugo
+
+- name: Download
+  get_url: url=https://github.com/spf13/hugo/releases/download/{{ hugo_version_path }}/hugo_{{ hugo_package_version }}_amd64.deb mode=0644
+  args:
+    dest: "/tmp/hugo_{{ hugo_package_version }}_amd64.deb"
+
+- name: Install
+  apt: deb="/tmp/hugo_{{ hugo_package_version }}_amd64.deb"
