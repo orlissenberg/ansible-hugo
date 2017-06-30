@@ -1,11 +1,11 @@
 ---
 # tasks file for hugo
-# latest: https://github.com/spf13/hugo/releases/download/v0.18/hugo_0.18-64bit.deb
+# latest: https://github.com/gohugoio/hugo/releases/download/v0.24.1/hugo_0.24.1_Linux-64bit.deb
 
 - name: Download
-  get_url: url=https://github.com/spf13/hugo/releases/download/v{{ hugo_version }}/hugo_{{ hugo_version }}-64bit.deb mode=0644
+  get_url: url=https://github.com/gohugoio/hugo/releases/download/v{{ hugo_version }}/hugo_{{ hugo_version }}_Linux-64bit.deb mode=0644
   args:
-    dest: "/tmp/hugo_{{ hugo_version }}-64bit.deb"
+    dest: "/tmp/hugo_{{ hugo_version }}_Linux-64bit.deb"
 
 - name: Install
-  apt: deb="/tmp/hugo_{{ hugo_version }}-64bit.deb"
+  apt: deb="/tmp/hugo_{{ hugo_version }}_Linux-64bit.deb"

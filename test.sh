@@ -10,7 +10,7 @@ cat << EOF > $TMP_DIR/hosts
 localhost ansible_connection=local
 EOF
 
-# Create group_vars for the webservers
+# Create group_vars for the web servers
 mkdir -p $TMP_DIR/group_vars 2> /dev/null
 cat << EOF > $TMP_DIR/group_vars/webservers
 # hugo_version: 0.18
@@ -20,7 +20,7 @@ EOF
 cat << EOF > $TMP_DIR/ansible.cfg
 [defaults]
 roles_path = $CURRENT_DIR/../
-host_key_checking = False
+host_key_checking = false
 EOF
 
 # Create playbook.yml
@@ -45,7 +45,7 @@ ansible-playbook $TMP_DIR/playbook.yml -i $TMP_DIR/hosts
 
 # Idempotence test
  ansible-playbook $TMP_DIR/playbook.yml -i $TMP_DIR/hosts | grep -q 'ok=3.*changed=0.*failed=0' \
- 	&& (echo 'Idempotence test: pass' && exit 0) \
- 	|| (echo 'Idempotence test: fail' && exit 1)
+   && (echo 'Idempotence test: pass' && exit 0) \
+   || (echo 'Idempotence test: fail' && exit 1)
 
-/usr/bin/hugo version
+/usr/local/bin/hugo version
